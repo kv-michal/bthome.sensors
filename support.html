@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BTHome Sensors – Support</title>
-  <meta name="description" content="Support page for the BTHome Sensors mobile application." />
+  <title>BTHome Sensors – Support &amp; Compatible Devices</title>
+  <meta name="description" content="BTHome Sensors support and compatible Bluetooth devices: Shelly BLU, selected Xiaomi, Qingping and Tuya models with BTHome firmware, and DIY sensors." />
 
   <style>
     :root {
@@ -77,6 +77,36 @@
       font-size: 0.9rem;
       color: rgba(238,242,255,.55);
     }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1rem;
+    }
+
+    .card > h2:first-child { margin-top: 0; }
+
+    .device-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 24px;
+      padding-left: 18px;
+      margin-left: 0;
+    }
+
+    .device-list li { margin: 2px 0; }
+
+    .compatibility-note {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      margin-top: 18px;
+    }
+
+    a { overflow-wrap: anywhere; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    @media (max-width: 560px) {
+      .device-list { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -90,6 +120,116 @@
     This page provides support and contact information for the
     <strong>BTHome Sensors</strong> mobile application.
   </p>
+
+  <section class="card" id="compatible-devices" aria-labelledby="devices-heading">
+    <h2 id="devices-heading">Supported devices &amp; compatibility</h2>
+    <p>
+      BTHome Sensors reads nearby Bluetooth devices that broadcast data using
+      the <strong>BTHome protocol</strong>. Examples include Shelly BLU devices,
+      selected Xiaomi, Miaomiaoce, Qingping and Tuya sensors with BTHome firmware,
+      and open-source or custom-built sensors.
+    </p>
+    <p>
+      This is a non-exhaustive list of devices with documented BTHome support,
+      rather than a list of models individually tested in the app. Compatibility
+      depends on the device firmware, broadcast settings and data types supported by the app.
+    </p>
+
+    <h3>Shelly BLU — native BTHome broadcasts</h3>
+    <ul class="device-list">
+      <li>Shelly BLU Button1</li>
+      <li>Shelly BLU Door/Window</li>
+      <li>Shelly BLU H&amp;T</li>
+      <li>Shelly BLU Motion</li>
+      <li>Shelly BLU RC Button 4</li>
+      <li>Shelly BLU Wall Switch 4</li>
+      <li>Shelly BLU Button Tough 1 ZB</li>
+      <li>Shelly BLU Door/Window ZB</li>
+      <li>Shelly BLU H&amp;T ZB</li>
+      <li>Shelly BLU H&amp;T Display ZB</li>
+      <li>Shelly BLU Motion ZB</li>
+      <li>Shelly BLU RC Button 4 ZB</li>
+      <li>Shelly BLU Wall Switch 4 ZB</li>
+      <li>Shelly BLU Remote Control ZB</li>
+      <li>Shelly BLU Distance</li>
+      <li>Shelly BLU TRV</li>
+    </ul>
+    <p>
+      ZB models are listed for their Bluetooth BTHome broadcasts. The app does
+      not read Zigbee traffic. For Shelly BLU TRV, this list refers to broadcast
+      data, not radiator control or configuration.
+    </p>
+
+    <h3>Ecowitt / Shelly weather station</h3>
+    <ul>
+      <li>Ecowitt WS90 with Shelly integration — BTHome model <strong>SBWS-90CM</strong>.</li>
+    </ul>
+    <p>The standard WS90 radio version is not covered by this entry.</p>
+
+    <h3>Xiaomi, Miaomiaoce &amp; Qingping — BTHome firmware required</h3>
+    <ul class="device-list">
+      <li>Xiaomi Mijia LYWSD03MMC</li>
+      <li>Xiaomi Mijia LYWSD02MMC</li>
+      <li>Xiaomi Mijia MJWSD05MMC</li>
+      <li>Xiaomi Mijia MJWSD06MMC</li>
+      <li>Miaomiaoce MHO-C401</li>
+      <li>Miaomiaoce MHO-C401N</li>
+      <li>Miaomiaoce MHO-C122</li>
+      <li>Qingping CGG1-Mijia</li>
+      <li>Qingping CGDK2 (Temp &amp; RH Monitor Lite)</li>
+    </ul>
+    <p>
+      These models require compatible <strong>PVVX / ATC_MiThermometer firmware</strong>
+      with the advertising format set to <strong>BTHome</strong>. Their original
+      manufacturer firmware is not covered by this list. Check the exact hardware
+      revision in the firmware documentation; the update method varies by model.
+    </p>
+
+    <h3>Selected Tuya models — BTHome firmware required</h3>
+    <ul class="device-list">
+      <li>Tuya TH03</li>
+      <li>Tuya LKTMZL02</li>
+      <li>Tuya ZTH05</li>
+      <li>Tuya TS0201 (supported Telink variants)</li>
+      <li>Tuya TH03Z</li>
+      <li>Tuya ZTH01</li>
+      <li>Tuya ZTH02</li>
+      <li>Tuya ZY-ZTH02</li>
+      <li>Tuya ZY-ZTH02Pro</li>
+      <li>Tuya ZY-ZTH03Pro</li>
+      <li>Tuya ZG-227Z</li>
+      <li>Tuya SGS01 plant monitor</li>
+      <li>HOBEIAN/Sonoff Tuya ZG-303Z soil sensor</li>
+      <li>Tuya ZBEACON-TH01 / v2.0</li>
+      <li>Tuya ZBEACON-MC</li>
+    </ul>
+    <p>
+      Only hardware variants supported by the PVVX firmware project are covered,
+      after installing the appropriate BLE firmware and enabling BTHome broadcasts.
+      Some variants require a programmer or hardware modifications. A matching
+      product name alone does not establish compatibility, and Zigbee-only firmware
+      cannot be read by the app.
+    </p>
+
+    <h3>Open-source &amp; DIY devices — configured to broadcast BTHome</h3>
+    <ul>
+      <li><strong>b-parasite</strong> soil, temperature, humidity and light sensors running BTHome BLE firmware.</li>
+      <li><strong>ESP32 / Espressif</strong> sensors using BTHomeV2 ESP32 or BTHome-weather-station firmware.</li>
+      <li><strong>Espruino / Puck.js</strong> devices running BTHome scripts, including the BTHome Electricity Meter project.</li>
+      <li><strong>Seeed Studio XIAO nRF52840 Sense</strong> running the BTHome Inertial Sensor CircuitPython example.</li>
+      <li>Other Bluetooth sensors running firmware that broadcasts standards-compliant BTHome data.</li>
+    </ul>
+
+    <div class="compatibility-note">
+      <p>
+        <strong>Before scanning:</strong> confirm that BTHome broadcasting is enabled
+        and keep the device within Bluetooth range. Buttons and other event-driven
+        devices may only send data when pressed or triggered. Encrypted broadcasts
+        require the correct device bindkey and support for that encryption mode in the app.
+      </p>
+    </div>
+
+  </section>
 
   <div class="card">
     <h2>Contact</h2>
